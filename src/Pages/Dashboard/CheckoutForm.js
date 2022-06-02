@@ -13,7 +13,7 @@ const CheckoutForm = ({ appointment }) => {
     const { _id, price, patient, patientName } = appointment;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://git.heroku.com/dcotors-portal.git/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -74,24 +74,24 @@ const CheckoutForm = ({ appointment }) => {
             setTransactionId(paymentIntent.id);
             console.log(paymentIntent);
             setSuccess('Congrats! Your payment is completed.')
-            
+
             //store payment on database
             const payment = {
                 appointment: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/booking/${_id}`, {
+            fetch(`https://git.heroku.com/dcotors-portal.git/booking/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 },
                 body: JSON.stringify(payment)
-            }).then(res=>res.json())
-            .then(data => {
-                setProcessing(false);
-                console.log(data);
-            })
+            }).then(res => res.json())
+                .then(data => {
+                    setProcessing(false);
+                    console.log(data);
+                })
 
         }
     }

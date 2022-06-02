@@ -24,7 +24,7 @@ const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
             phone: event.target.phone.value,
         }
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://git.heroku.com/dcotors-portal.git/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -33,10 +33,10 @@ const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
         })
             .then(res => res.json())
             .then(data => {
-                if(data.success){
+                if (data.success) {
                     toast(`Appointment is set on ${formattedDate} at ${slot}`)
                 }
-                else{
+                else {
                     toast.error(`Already have and appointment on ${data.booking?.date} at ${data.booking?.slot}`)
                 }
                 // to close the modal
