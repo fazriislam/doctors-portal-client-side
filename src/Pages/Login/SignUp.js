@@ -121,7 +121,7 @@ const SignUp = () => {
                     <p><small>Already have an account? <Link className='text-primary' to="/login">Please login</Link></small></p>
                     <div className="divider">OR</div>
                     <button
-                        onClick={() => signInWithGoogle()}
+                        onClick={() => signInWithGoogle(navigate('/home'))}
                         className="btn btn-outline"
                     >Continue with Google</button>
                 </div>
