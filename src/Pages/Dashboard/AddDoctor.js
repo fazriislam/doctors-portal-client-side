@@ -7,7 +7,7 @@ import Loading from '../Shared/Loading';
 const AddDoctor = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-    const { data: services, isLoading } = useQuery('services', () => fetch('https://git.heroku.com/dcotors-portal.git/service').then(res => res.json()))
+    const { data: services, isLoading } = useQuery('services', () => fetch('https://young-woodland-85959.herokuapp.com/service').then(res => res.json()))
 
     const imageStorageKey = '4295ac4d47b569312bea67b440cdbdbb';
 
@@ -39,7 +39,7 @@ const AddDoctor = () => {
                         img: img
                     }
                     // send to your database 
-                    fetch('https://git.heroku.com/dcotors-portal.git/doctor', {
+                    fetch('https://young-woodland-85959.herokuapp.com/doctor', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

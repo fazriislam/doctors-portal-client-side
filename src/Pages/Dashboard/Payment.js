@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51L0T1mEqEvkgdCQknwttHXEpfIWkzSrqhkZjp
 const Payment = () => {
     const { id } = useParams();
 
-    const url = `https://git.heroku.com/dcotors-portal.git/booking/${id}`;
+    const url = `https://young-woodland-85959.herokuapp.com/booking/${id}`;
 
     const { data: appointment, isLoading } = useQuery(['booking', id], () => fetch(url, {
         method: 'GET',

@@ -11,7 +11,7 @@ const AvailableAppointments = ({ date }) => {
     const formattedDate = format(date, 'PP');
 
     const { data: services, isLoading, refetch } = useQuery(['available', formattedDate], () =>
-        fetch(`https://git.heroku.com/dcotors-portal.git/available?date=${formattedDate}`)
+        fetch(`https://young-woodland-85959.herokuapp.com/available?date=${formattedDate}`)
             .then(res => res.json())
     )
     // console.log(services);

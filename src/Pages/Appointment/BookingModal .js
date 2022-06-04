@@ -24,7 +24,7 @@ const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
             phone: event.target.phone.value,
         }
 
-        fetch('https://git.heroku.com/dcotors-portal.git/booking', {
+        fetch('https://young-woodland-85959.herokuapp.com/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

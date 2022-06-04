@@ -18,6 +18,7 @@ import RequireAdmin from './Pages/Login/RequireAdmin';
 import AddDoctor from './Pages/Dashboard/AddDoctor';
 import ManageDoctors from './Pages/Dashboard/ManageDoctors';
 import Payment from './Pages/Dashboard/Payment';
+import NotFound from './Pages/Shared/NotFound';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer />
     </div>
