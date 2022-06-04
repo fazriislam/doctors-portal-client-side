@@ -25,14 +25,14 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="appointment" element={
+        <Route path="/about" element={<About />} />
+        <Route path="/appointment" element={
           <RequireAuth>
             <Appointment />
           </RequireAuth>
         } />
         
-        <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
+        <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
           <Route index element={<MyAppointments></MyAppointments>}></Route>
           <Route path="review" element={<MyReview></MyReview>}></Route>
           <Route path="history" element={<MyHistory></MyHistory>}></Route>
@@ -42,8 +42,8 @@ function App() {
           <Route path="manageDoctor" element={<ManageDoctors><AddDoctor></AddDoctor></ManageDoctors>}></Route>
         </Route>
 
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
       <ToastContainer />
     </div>

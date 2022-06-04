@@ -8,22 +8,24 @@ import Loading from '../Shared/Loading';
 const AvailableAppointments = ({ date }) => {
     // const [services, setServices] = useState([]);
     const [treatment, setTreatment] = useState(null);
-
     const formattedDate = format(date, 'PP');
+
     const { data: services, isLoading, refetch } = useQuery(['available', formattedDate], () =>
         fetch(`https://git.heroku.com/dcotors-portal.git/available?date=${formattedDate}`)
             .then(res => res.json())
     )
+    // console.log(services);
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/available?date=${formattedDate}`)
+    //         .then(res => res.json())
+    //         .then(data => setServices(data));
+    // }, [formattedDate])
 
     if (isLoading) {
         return <Loading />
     }
-
-    // useEffect(() => {
-    //     fetch(`https://git.heroku.com/dcotors-portal.git/available?date=${formattedDate}`)
-    //         .then(res => res.json())
-    //         .then(data => setServices(data));
-    // }, [formattedDate])
+    // console.log(services);
 
     return (
         <div className='my-10'>
